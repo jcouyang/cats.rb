@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "The Either Monad"
   s.authors     = ["Jichao Ouyang"]
   s.email       = 'oyanglulu@gmail.com'
-  s.files       = ["lib/either.rb"]
+  s.files       = ["lib/data.either.rb"]
   s.homepage    =
     'https://github.com/jcouyang/cats.rb'
   s.license       = 'MIT'

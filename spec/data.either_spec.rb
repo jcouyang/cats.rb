@@ -1,4 +1,4 @@
-require_relative '../lib/either'
+require_relative '../lib/data.either'
 describe Either do
   it '#map' do
     expect(Right.new(1).map {|x| x + 1}).to eq(Right.new(2))
