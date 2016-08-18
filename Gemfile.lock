@@ -15,12 +15,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    semver (1.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rspec
+  semver
 
 BUNDLED WITH
    1.11.2

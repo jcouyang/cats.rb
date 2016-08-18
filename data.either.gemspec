@@ -1,7 +1,7 @@
 VERSION = ENV['CIRCLE_TAG'] || 0.1.dev
 Gem::Specification.new do |s|
   s.name        = 'data.either'
-  s.version     = VERSION
+  s.version     = VERSION.gsub "v", ""
   s.summary     = "Either Data Type for Ruby"
   s.description = "The Either Monad"
   s.authors     = ["Jichao Ouyang"]
