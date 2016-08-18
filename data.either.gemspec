@@ -1,4 +1,4 @@
-VERSION = ENV['CIRCLE_TAG'] || 0.1.dev
+VERSION = ENV['CIRCLE_TAG'] || 0.0.0
 Gem::Specification.new do |s|
   s.name        = 'data.either'
   s.version     = VERSION.gsub "v", ""
