@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.homepage    =
     'https://github.com/jcouyang/cats.rb'
   s.license       = 'MIT'
+  s.required_ruby_version = '>= 1.9.0'
 end
