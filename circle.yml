@@ -1,6 +1,3 @@
-machine:
-  ruby:
-    version: 2.2.3
 test:
   pre:
-    - rspec */spec
+    - bundle exec rspec */spec
