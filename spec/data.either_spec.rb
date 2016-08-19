@@ -30,6 +30,12 @@ describe Either do
     expect(Left.new(1).bind { |x| Left.new } ).to eq(Left.new(1))
   end
 
+  it '#when' do
+    expect(Right.new(1).when({Right: ->x{x+1} })).to eq(2)
+    expect(Right.new(1).when({Left: ->x{x+1} })).to eq(nil)
+    expect(Right.new(1).when({Left: ->x{x+1}, _: ->x{x-1} })).to eq(0)
+  end
+  
   describe Right do
     it '#==' do
       expect(Right.new(1) == Left.new(1)).to be false
