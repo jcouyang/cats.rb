@@ -1,9 +1,18 @@
-# a very simple Either
+require 'control.monad'
 module Either
+  extend Monad
   def initialize v
     @v = v
   end
 
+  def left?
+    false
+  end
+
+  def right?
+    false
+  end
+  
   def get_or_else e
     case self
       when Right
@@ -13,7 +22,6 @@ module Either
     end
   end
 
-  # Functor
   def map
     case self
     when Right
@@ -22,8 +30,6 @@ module Either
       self
     end
   end
-  
-  alias :fmap :map
   
   def left_map
     case self
@@ -43,7 +49,6 @@ module Either
     end
   end
 
-  # Monad
   def bind
     case self
     when Right
@@ -53,9 +58,27 @@ module Either
     end
   end
 
-  alias :chain :bind
-  alias :flat_map :bind
+  # [Either a b] -> [b]
+  def rights list_of_either
+    list_of_either.select(&:right?)
+      .map { |right| right.get_or_else(nil) }
+  end
 
+  # [Either a b] -> [a]
+  def left list_of_either
+    list_of_either.select(&:left?)
+      .map { |left| left.when({Left: ->l{l}}) }
+  end
+
+  def when what
+    current_class = self.class.to_s.to_sym
+    if what.include? current_class
+      what[current_class].(@v)
+    elsif what.include? :_
+      what[:_].(@v)
+    end
+  end
+    
   def inspect
     case self
     when Left
@@ -67,9 +90,13 @@ module Either
 end
 
 class Left
-  include Either
+  include Either  
   def initialize v=nil
     @v=v
+  end
+
+  def left?
+    true
   end
   
   def == other
@@ -84,6 +111,11 @@ end
 
 class Right
   include Either
+
+  def right?
+    true
+  end
+  
   def == other
     case other
     when Right
