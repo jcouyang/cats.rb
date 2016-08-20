@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Either
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Either";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (E)</a> &raquo;
+    
+    
+    <span class="title">Either</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="class_list.html"></iframe>
+
+      <div id="content"><h1>Module: Either
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Control/Monad.html" title="Control::Monad (module)">Control::Monad</a></span></dd>
+  </dl>
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span>, <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/data.either.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The <code>Either</code> union type represents values with two possibilities:</p>
+
+<p><code>Either a b</code> is either <code>Left a</code> or <code>Right b</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lefts-class_method" title="lefts (class method)">.<strong>lefts</strong>(list_of_either)  &#x21d2; value </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>filter only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> <code>ruby Either.lefts [Left.new(1),Right.new(5), Right.new(2)] # =&gt; [1]</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#partition-class_method" title="partition (class method)">.<strong>partition</strong>(list_of_either)  &#x21d2; [l], [r] </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>partion a List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> into a List of 2 List, one contains only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span>, other contains only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span> <code>ruby Either.partition [Left.new(1),Right.new(5), Right.new(2)]  # =&gt; [[1],[5, 2]]</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rights-class_method" title="rights (class method)">.<strong>rights</strong>(list_of_either)  &#x21d2; value </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>filter only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> <code>ruby Either.rights [Left.new(1),Right.new(5), Right.new(2)] # =&gt; [5, 2]</code>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3E%3D-instance_method" title="#&gt;= (instance method)">#<strong>&gt;=</strong>  &#x21d2; Either </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>it override Monad#&gt;=, as Haskell&#39;s <code>&gt;&gt;=</code> method if it&#39;s <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span>, pass the value to #&gt;=&#39;s block, and flat the result of the block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bimap-instance_method" title="#bimap (instance method)">#<strong>bimap</strong>(lfn, rfn)  &#x21d2; Either </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p><code>bimap</code> accept 2 lambdas, if it&#39;s [Right], apply the 2nd lambda, otherwise apply to the first lambda <code>ruby   Right.new(1).bimap -&gt;(x){x-1}, -&gt;(x){x+1} # =&gt; 2   Left.new(1).bimap -&gt;(x){x-1}, -&gt;(x){x+1}) # =&gt; 0</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_or_else-instance_method" title="#get_or_else (instance method)">#<strong>get_or_else</strong>(e)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>get value <code>a</code> out from <code>Right a</code>, otherwise return <code>e</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(v)  &#x21d2; Either </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Either only contain one value @v.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#left%3F-instance_method" title="#left? (instance method)">#<strong>left?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>default <code>false</code>, should override in <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> or <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#left_map-instance_method" title="#left_map (instance method)">#<strong>left_map</strong>  &#x21d2; Either </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>the opposit of #map, apply function to <code>Left e</code>, do nothing if it&#39;s <code>Right a</code> <code>ruby   Right.new(1).left_map {|x| x + 1} # =&gt; #&lt;Right value=1&gt;   Left.new(1).left_map {|x| x + 1} # =&gt; #&lt;Left value=2&gt;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#map-instance_method" title="#map (instance method)">#<strong>map</strong>  &#x21d2; Either </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>overide of Functor&#39;s <code>fmap</code>, apply function on <code>Right a</code>&#39;s value <code>a</code>, do nothing if it&#39;s <code>Left e</code> <code>ruby   Right.new(1).map {|x| x + 1} # =&gt; #&lt;Right value=2&gt;   Left.new(1).map {|x| x + 1} # =&gt; #&lt;Left value=1&gt;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#right%3F-instance_method" title="#right? (instance method)">#<strong>right?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>default <code>false</code>, should override in <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> or <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#when-instance_method" title="#when (instance method)">#<strong>when</strong>(what)  &#x21d2; Either </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>similar to Scala&#39;s <code>match</code> for case class.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Control/Monad.html" title="Control::Monad (module)">Control::Monad</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Control/Monad.html#%3E-instance_method" title="Control::Monad#&gt; (method)">#></a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Helper.html" title="Helper (module)">Helper</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Helper.html#alias_names-instance_method" title="Helper#alias_names (method)">#alias_names</a></span></p>
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="lefts-class_method">
+  
+    .<strong>lefts</strong>(list_of_either)  &#x21d2; <tt>value</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>filter only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span></p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Either</span><span class='period'>.</span><span class='id identifier rubyid_lefts'>lefts</span> <span class='lbracket'>[</span><span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='comma'>,</span><span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='comment'># =&gt; [1]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>value</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+141
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 141</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_lefts'>lefts</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
+  <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:left?</span><span class='rparen'>)</span>
+    <span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_left'>left</span><span class='op'>|</span> <span class='id identifier rubyid_left'>left</span><span class='period'>.</span><span class='id identifier rubyid_when'>when</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>Left:</span> <span class='tlambda'>-&gt;</span><span class='id identifier rubyid_l'>l</span><span class='tlambeg'>{</span><span class='id identifier rubyid_l'>l</span><span class='rbrace'>}</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="partition-class_method">
+  
+    .<strong>partition</strong>(list_of_either)  &#x21d2; <tt>[l]</tt>, <tt>[r]</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>partion a List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> into a List of 2 List, one contains only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span>, other contains only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span></p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Either</span><span class='period'>.</span><span class='id identifier rubyid_partition'>partition</span> <span class='lbracket'>[</span><span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='comma'>,</span><span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span>  <span class='comment'># =&gt; [[1],[5, 2]]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>[l]</tt>, <tt>[r]</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_partition'>partition</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
+  <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_acc'>acc</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+    <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_when'>when</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+             <span class='label'>Left:</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_l'>l</span><span class='rparen'>)</span><span class='tlambeg'>{</span><span class='id identifier rubyid_acc'>acc</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_l'>l</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='comma'>,</span>
+             <span class='label'>Right:</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='tlambeg'>{</span><span class='id identifier rubyid_acc'>acc</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+           <span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_acc'>acc</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rights-class_method">
+  
+    .<strong>rights</strong>(list_of_either)  &#x21d2; <tt>value</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>filter only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span></p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Either</span><span class='period'>.</span><span class='id identifier rubyid_rights'>rights</span> <span class='lbracket'>[</span><span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='comma'>,</span><span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='comment'># =&gt; [5, 2]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>value</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rights'>rights</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
+  <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:right?</span><span class='rparen'>)</span>
+    <span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_right'>right</span><span class='op'>|</span> <span class='id identifier rubyid_right'>right</span><span class='period'>.</span><span class='id identifier rubyid_get_or_else'>get_or_else</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id=">=-instance_method">
+  
+    #<strong>&gt;=</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>it override Monad#&gt;=, as Haskell&#39;s <code>&gt;&gt;=</code> method
+if it&#39;s <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span>, pass the value to #&gt;=&#39;s block, and flat the result
+of the block.</p>
+
+<p>when it&#39;s <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span>, do nothing</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='op'>&gt;=</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='op'>&gt;=</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='op'>&gt;=</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+  <span class='kw'>when</span> <span class='const'>Right</span>
+    <span class='kw'>yield</span> <span class='ivar'>@v</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bimap-instance_method">
+  
+    #<strong>bimap</strong>(lfn, rfn)  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p><code>bimap</code> accept 2 lambdas, if it&#39;s [Right], apply the 2nd lambda, otherwise apply to the first lambda</p>
+
+<pre class="code ruby"><code class="ruby">  Right.new(1).bimap -&gt;(x){x-1}, -&gt;(x){x+1} # =&gt; 2
+  Left.new(1).bimap -&gt;(x){x-1}, -&gt;(x){x+1}) # =&gt; 0
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bimap'>bimap</span> <span class='id identifier rubyid_lfn'>lfn</span><span class='comma'>,</span> <span class='id identifier rubyid_rfn'>rfn</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+    <span class='kw'>when</span> <span class='const'>Right</span>
+      <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_rfn'>rfn</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@v</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_lfn'>lfn</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@v</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_or_else-instance_method">
+  
+    #<strong>get_or_else</strong>(e)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>get value <code>a</code> out from <code>Right a</code>, otherwise return <code>e</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_or_else'>get_or_else</span> <span class='id identifier rubyid_e'>e</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+    <span class='kw'>when</span> <span class='const'>Right</span>
+      <span class='ivar'>@v</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_e'>e</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(v)  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Either only contain one value @v</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_v'>v</span>
+  <span class='ivar'>@v</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    #<strong>inspect</strong>  &#x21d2; <tt>String</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122
+123
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+  <span class='kw'>when</span> <span class='const'>Left</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Left value=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@v</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Right value=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@v</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="left?-instance_method">
+  
+    #<strong>left?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>default <code>false</code>, should override in <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> or <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_left?'>left?</span>
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="left_map-instance_method">
+  
+    #<strong>left_map</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>the opposit of #map, apply function to <code>Left e</code>, do nothing if it&#39;s <code>Right a</code></p>
+
+<pre class="code ruby"><code class="ruby">  <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_left_map'>left_map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='int'>1</span><span class='rbrace'>}</span> <span class='comment'># =&gt; #&lt;Right value=1&gt;
+</span>  <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_left_map'>left_map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='int'>1</span><span class='rbrace'>}</span> <span class='comment'># =&gt; #&lt;Left value=2&gt;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_left_map'>left_map</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+  <span class='kw'>when</span> <span class='const'>Left</span>
+    <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>yield</span> <span class='ivar'>@v</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="map-instance_method">
+  
+    #<strong>map</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>overide of Functor&#39;s <code>fmap</code>, apply function on <code>Right a</code>&#39;s value <code>a</code>, do nothing if it&#39;s <code>Left e</code></p>
+
+<pre class="code ruby"><code class="ruby">  <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='int'>1</span><span class='rbrace'>}</span> <span class='comment'># =&gt; #&lt;Right value=2&gt;
+</span>  <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='int'>1</span><span class='rbrace'>}</span> <span class='comment'># =&gt; #&lt;Left value=1&gt;
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_map'>map</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+  <span class='kw'>when</span> <span class='const'>Right</span>
+    <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>yield</span> <span class='ivar'>@v</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="right?-instance_method">
+  
+    #<strong>right?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>default <code>false</code>, should override in <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> or <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_right?'>right?</span>
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="when-instance_method">
+  
+    #<strong>when</strong>(what)  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>similar to Scala&#39;s <code>match</code> for case class</p>
+
+<p>will pattern match the value out and pass to matched lambda</p>
+
+<pre class="code ruby"><code class="ruby">Right.new(1).when({Right: -&gt;x{x+1} }) # =&gt; 2
+Right.new(1).when({Left: -&gt;x{x+1}) # =&gt; nil
+Right.new(1).when({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109
+110
+111
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='kw'>when</span> <span class='id identifier rubyid_what'>what</span>
+  <span class='id identifier rubyid_current_class'>current_class</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_what'>what</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_current_class'>current_class</span>
+    <span class='id identifier rubyid_what'>what</span><span class='lbracket'>[</span><span class='id identifier rubyid_current_class'>current_class</span><span class='rbracket'>]</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@v</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_what'>what</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='symbol'>:_</span>
+    <span class='id identifier rubyid_what'>what</span><span class='lbracket'>[</span><span class='symbol'>:_</span><span class='rbracket'>]</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@v</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Aug 20 16:01:53 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-2.2.0).
+</div>
+
+    </div>
+  </body>
+</html>
