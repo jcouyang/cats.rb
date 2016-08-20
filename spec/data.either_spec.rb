@@ -25,15 +25,31 @@ describe Either do
     expect(Left.new(1).inspect).to eq('#<Left value=1>')
   end
 
-  it '#bind' do
-    expect(Right.new(1).bind { |x| Left.new } ).to eq(Left.new)
-    expect(Left.new(1).bind { |x| Left.new } ).to eq(Left.new(1))
+  it '#>=' do
+    expect(Right.new(1).>= { |x| Left.new } ).to eq(Left.new)
+    expect(Left.new(1).flat_map { |x| Left.new } ).to eq(Left.new(1))
   end
 
   it '#when' do
     expect(Right.new(1).when({Right: ->x{x+1} })).to eq(2)
     expect(Right.new(1).when({Left: ->x{x+1} })).to eq(nil)
     expect(Right.new(1).when({Left: ->x{x+1}, _: ->x{x-1} })).to eq(0)
+  end
+
+  it 'partition' do
+    expect(Either.partition [Left.new(1),Right.new(5), Right.new(2)]).to eq([[1],[5, 2]])
+  end
+
+  it 'lefts' do
+    expect(Either.lefts [Left.new(1),Right.new(5), Right.new(2)]).to eq([1])
+  end
+
+  it 'rights' do
+    expect(Either.rights [Left.new(1),Right.new(5), Right.new(2)]).to eq([5,2])
+  end
+
+  it '#>>' do
+    expect(Right.new(1) > Left.new > Right.new(1)).to eq(Left.new)
   end
   
   describe Right do
