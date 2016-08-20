@@ -3,7 +3,7 @@ require 'control/monad'
 # The `Either` union type represents values with two possibilities:
 #
 # `Either a b` is either `Left a` or `Right b`
-class Either
+module Either
   include Control::Monad
 
   # Either only contain one value @v
@@ -160,7 +160,8 @@ class Either
 end
 
 
-class Left < Either  
+class Left
+  include Either  
   def initialize v=nil
     @v=v
   end
@@ -181,7 +182,8 @@ class Left < Either
   end
 end
 
-class Right < Either
+class Right
+  include Either
   
   # always true
   # @return [Boolean]
