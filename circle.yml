@@ -3,6 +3,7 @@ test:
     - bundle exec rspec
 deployment:
   docs:
+    branch: master
     commands:
       - ./ci-docs.sh
   release:
