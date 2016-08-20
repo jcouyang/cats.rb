@@ -2,6 +2,9 @@ test:
   pre:
     - bundle exec rspec
 deployment:
+  docs:
+    commands:
+      - ./ci-docs.sh
   release:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
