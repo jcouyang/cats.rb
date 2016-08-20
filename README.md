@@ -2,6 +2,7 @@
 
 `Cats.rb` is a collection of Category Theory libs for Ruby. You'll find it very handy if you familiar with [Haskell](http://haskell.org/) or [scalaz](https://github.com/scalaz/scalaz)/[cats](https://github.com/typelevel/cats)
 
+[![CircleCI](https://circleci.com/gh/jcouyang/cats.rb.svg?style=svg)](https://circleci.com/gh/jcouyang/cats.rb)
 [![License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](#license)
 
 :joy_cat: :arrow_right: :smirk_cat: <br/>
