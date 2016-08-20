@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 echo "---" > ~/.gem/credentials
 echo ":rubygems_api_key: $RUBYGEMS_API" >> ~/.gem/credentials
