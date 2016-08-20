@@ -2,6 +2,8 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    github-markup (1.4.0)
+    redcarpet (3.3.4)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -16,13 +18,17 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     semver (1.0.1)
+    yard (0.9.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  github-markup
+  redcarpet
   rspec
   semver
+  yard
 
 BUNDLED WITH
    1.11.2
