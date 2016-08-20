@@ -139,7 +139,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>filter only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> <code>ruby Either.lefts [Left.new(1),Right.new(5), Right.new(2)] # =&gt; [1]</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>filter only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span>.</p>
 </div></span>
   
 </li>
@@ -162,7 +162,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>partion a List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> into a List of 2 List, one contains only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span>, other contains only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span> <code>ruby Either.partition [Left.new(1),Right.new(5), Right.new(2)]  # =&gt; [[1],[5, 2]]</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>partion a List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> into a List of 2 List, one contains only <span class='object_link'><a href="Left.html" title="Left (class)">Left</a></span>, other contains only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span>.</p>
 </div></span>
   
 </li>
@@ -185,7 +185,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>filter only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span> <code>ruby Either.rights [Left.new(1),Right.new(5), Right.new(2)] # =&gt; [5, 2]</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>filter only <span class='object_link'><a href="Right.html" title="Right (class)">Right</a></span> value from List of <span class='object_link'><a href="" title="Either (module)">Either</a></span>.</p>
 </div></span>
   
 </li>
@@ -240,7 +240,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p><code>bimap</code> accept 2 lambdas, if it&#39;s [Right], apply the 2nd lambda, otherwise apply to the first lambda <code>ruby   Right.new(1).bimap -&gt;(x){x-1}, -&gt;(x){x+1} # =&gt; 2   Left.new(1).bimap -&gt;(x){x-1}, -&gt;(x){x+1}) # =&gt; 0</code>.</p>
+    <span class="summary_desc"><div class='inline'><p><code>bimap</code> accept 2 lambdas, if it&#39;s [Right], apply the 2nd lambda, otherwise apply to the first lambda.</p>
 </div></span>
   
 </li>
@@ -354,7 +354,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>the opposit of #map, apply function to <code>Left e</code>, do nothing if it&#39;s <code>Right a</code> <code>ruby   Right.new(1).left_map {|x| x + 1} # =&gt; #&lt;Right value=1&gt;   Left.new(1).left_map {|x| x + 1} # =&gt; #&lt;Left value=2&gt;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>the opposit of #map, apply function to <code>Left e</code>, do nothing if it&#39;s <code>Right a</code>.</p>
 </div></span>
   
 </li>
@@ -377,7 +377,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>overide of Functor&#39;s <code>fmap</code>, apply function on <code>Right a</code>&#39;s value <code>a</code>, do nothing if it&#39;s <code>Left e</code> <code>ruby   Right.new(1).map {|x| x + 1} # =&gt; #&lt;Right value=2&gt;   Left.new(1).map {|x| x + 1} # =&gt; #&lt;Left value=1&gt;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>overide of Functor&#39;s <code>fmap</code>, apply function on <code>Right a</code>&#39;s value <code>a</code>, do nothing if it&#39;s <code>Left e</code>.</p>
 </div></span>
   
 </li>
@@ -498,13 +498,13 @@
       <pre class="lines">
 
 
-141
-142
-143
-144</pre>
+147
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_lefts'>lefts</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
   <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:left?</span><span class='rparen'>)</span>
@@ -556,18 +556,18 @@
       <pre class="lines">
 
 
-151
-152
-153
-154
-155
-156
-157
 158
-159</pre>
+159
+160
+161
+162
+163
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 158</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_partition'>partition</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
   <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_acc'>acc</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
@@ -624,13 +624,13 @@
       <pre class="lines">
 
 
-131
-132
-133
-134</pre>
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rights'>rights</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
   <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:right?</span><span class='rparen'>)</span>
@@ -693,17 +693,17 @@ of the block.</p>
       <pre class="lines">
 
 
-89
-90
-91
 92
 93
 94
 95
-96</pre>
+96
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='op'>&gt;=</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -760,17 +760,17 @@ of the block.</p>
       <pre class="lines">
 
 
-70
-71
-72
 73
 74
 75
 76
-77</pre>
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bimap'>bimap</span> <span class='id identifier rubyid_lfn'>lfn</span><span class='comma'>,</span> <span class='id identifier rubyid_rfn'>rfn</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -925,17 +925,17 @@ of the block.</p>
       <pre class="lines">
 
 
-117
-118
-119
-120
 121
 122
 123
-124</pre>
+124
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -1045,17 +1045,17 @@ of the block.</p>
       <pre class="lines">
 
 
-55
-56
 57
 58
 59
 60
 61
-62</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_left_map'>left_map</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -1112,17 +1112,17 @@ of the block.</p>
       <pre class="lines">
 
 
-41
 42
 43
 44
 45
 46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_map'>map</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -1235,17 +1235,17 @@ Right.new(1).when({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
       <pre class="lines">
 
 
-107
-108
-109
-110
 111
 112
 113
-114</pre>
+114
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='kw'>when</span> <span class='id identifier rubyid_what'>what</span>
   <span class='id identifier rubyid_current_class'>current_class</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -1265,7 +1265,7 @@ Right.new(1).when({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
 </div>
 
       <div id="footer">
-  Generated on Sat Aug 20 09:10:07 2016 by
+  Generated on Sat Aug 20 12:20:26 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>
