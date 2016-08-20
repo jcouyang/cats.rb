@@ -33,6 +33,7 @@ module Either
   end
 
   # overide of Functor's `fmap`, apply function on `Right a`'s value `a`, do nothing if it's `Left e`
+  #
   # ``` ruby
   #   Right.new(1).map {|x| x + 1} # => #<Right value=2>
   #   Left.new(1).map {|x| x + 1} # => #<Left value=1>
@@ -47,6 +48,7 @@ module Either
     end
   end
   # the opposit of #map, apply function to `Left e`, do nothing if it's `Right a`
+  #
   # ``` ruby
   #   Right.new(1).left_map {|x| x + 1} # => #<Right value=1>
   #   Left.new(1).left_map {|x| x + 1} # => #<Left value=2>
@@ -62,6 +64,7 @@ module Either
   end
 
   # `bimap` accept 2 lambdas, if it's [Right], apply the 2nd lambda, otherwise apply to the first lambda
+  #
   # ``` ruby
   #   Right.new(1).bimap ->(x){x-1}, ->(x){x+1} # => 2
   #   Left.new(1).bimap ->(x){x-1}, ->(x){x+1}) # => 0
@@ -98,6 +101,7 @@ module Either
   # similar to Scala's `match` for case class
   #
   # will pattern match the value out and pass to matched lambda
+  #
   # ``` ruby
   # Right.new(1).when({Right: ->x{x+1} }) # => 2
   # Right.new(1).when({Left: ->x{x+1}) # => nil
@@ -124,6 +128,7 @@ module Either
   end
 
   # filter only {Right} value from List of {Either}
+  #
   # ``` ruby
   # Either.rights [Left.new(1),Right.new(5), Right.new(2)] # => [5, 2]
   # ```
@@ -134,6 +139,7 @@ module Either
   end
 
   # filter only {Left} value from List of {Either}
+  #
   # ``` ruby
   # Either.lefts [Left.new(1),Right.new(5), Right.new(2)] # => [1]
   # ```
@@ -144,6 +150,7 @@ module Either
   end
 
   # partion a List of {Either} into a List of 2 List, one contains only {Left}, other contains only {Right}
+  #
   # ``` ruby
   # Either.partition [Left.new(1),Right.new(5), Right.new(2)]  # => [[1],[5, 2]]
   # ```
