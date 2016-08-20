@@ -6,5 +6,6 @@ group :development do
   gem 'github-markup'
 end
 group :test do
+  gem 'coveralls'
   gem 'rspec'
 end
