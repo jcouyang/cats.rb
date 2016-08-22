@@ -179,7 +179,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Either.html" title="Either (module)">Either</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Either.html#%3E%3D-instance_method" title="Either#&gt;= (method)">#>=</a></span>, <span class='object_link'><a href="Either.html#bimap-instance_method" title="Either#bimap (method)">#bimap</a></span>, <span class='object_link'><a href="Either.html#get_or_else-instance_method" title="Either#get_or_else (method)">#get_or_else</a></span>, <span class='object_link'><a href="Either.html#initialize-instance_method" title="Either#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Either.html#inspect-instance_method" title="Either#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="Either.html#left%3F-instance_method" title="Either#left? (method)">#left?</a></span>, <span class='object_link'><a href="Either.html#left_map-instance_method" title="Either#left_map (method)">#left_map</a></span>, <span class='object_link'><a href="Either.html#lefts-class_method" title="Either.lefts (method)">lefts</a></span>, <span class='object_link'><a href="Either.html#map-instance_method" title="Either#map (method)">#map</a></span>, <span class='object_link'><a href="Either.html#partition-class_method" title="Either.partition (method)">partition</a></span>, <span class='object_link'><a href="Either.html#rights-class_method" title="Either.rights (method)">rights</a></span>, <span class='object_link'><a href="Either.html#when-instance_method" title="Either#when (method)">#when</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Either.html#%3C%3D%3E-instance_method" title="Either#&lt;=&gt; (method)">#<=></a></span>, <span class='object_link'><a href="Either.html#bimap-instance_method" title="Either#bimap (method)">#bimap</a></span>, <span class='object_link'><a href="Either.html#each-instance_method" title="Either#each (method)">#each</a></span>, <span class='object_link'><a href="Either.html#flat_map-instance_method" title="Either#flat_map (method)">#flat_map</a></span>, <span class='object_link'><a href="Either.html#get_or_else-instance_method" title="Either#get_or_else (method)">#get_or_else</a></span>, <span class='object_link'><a href="Either.html#initialize-instance_method" title="Either#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Either.html#inspect-instance_method" title="Either#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="Either.html#left%3F-instance_method" title="Either#left? (method)">#left?</a></span>, <span class='object_link'><a href="Either.html#left_map-instance_method" title="Either#left_map (method)">#left_map</a></span>, <span class='object_link'><a href="Either.html#lefts-class_method" title="Either.lefts (method)">lefts</a></span>, <span class='object_link'><a href="Either.html#map-instance_method" title="Either#map (method)">#map</a></span>, <span class='object_link'><a href="Either.html#or_else-instance_method" title="Either#or_else (method)">#or_else</a></span>, <span class='object_link'><a href="Either.html#partition-class_method" title="Either.partition (method)">partition</a></span>, <span class='object_link'><a href="Either.html#rights-class_method" title="Either.rights (method)">rights</a></span>, <span class='object_link'><a href="Either.html#to_a-instance_method" title="Either#to_a (method)">#to_a</a></span>, <span class='object_link'><a href="Either.html#when-instance_method" title="Either#when (method)">#when</a></span>, <span class='object_link'><a href="Either.html#%7E%40-instance_method" title="Either#~@ (method)">#~@</a></span></p>
 
   
   
@@ -190,7 +190,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Control/Monad.html" title="Control::Monad (module)">Control::Monad</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Control/Monad.html#%3E-instance_method" title="Control::Monad#&gt; (method)">#></a></span>, <span class='object_link'><a href="Control/Monad.html#%3E%3D-instance_method" title="Control::Monad#&gt;= (method)">#>=</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Control/Monad.html#%3E%3E-instance_method" title="Control::Monad#&gt;&gt; (method)">#>></a></span>, <span class='object_link'><a href="Control/Monad.html#flat_map-instance_method" title="Control::Monad#flat_map (method)">#flat_map</a></span></p>
 
   
   
@@ -204,6 +204,7 @@
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Control/Functor.html" title="Control::Functor (module)">Control::Functor</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Control/Functor.html#map-instance_method" title="Control::Functor#map (method)">#map</a></span></p>
 
+  
   
 
   <div id="instance_method_details" class="method_details_list">
@@ -225,17 +226,17 @@
       <pre class="lines">
 
 
-201
-202
-203
-204
-205
-206
-207
-208</pre>
+266
+267
+268
+269
+270
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_other'>other</span>
@@ -288,12 +289,12 @@
       <pre class="lines">
 
 
-197
-198
-199</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_right?'>right?</span>
   <span class='kw'>true</span>
@@ -308,7 +309,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Aug 20 12:48:39 2016 by
+  Generated on Mon Aug 22 09:39:48 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>

@@ -85,7 +85,7 @@
 <h3>How to use</h3>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>data.either</span><span class='tstring_end'>&#39;</span></span>
-<span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='op'>&gt;=</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> 
+<span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> 
   <span class='kw'>if</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>&lt;</span> <span class='int'>1</span>
     <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meh</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='kw'>else</span>
@@ -94,7 +94,7 @@
 <span class='kw'>end</span>
 <span class='comment'># =&gt; #&lt;Right value=2&gt;
 </span>
-<span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>&gt;</span> <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>oops</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>&gt;</span> <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='comment'># =&gt; #&lt;Left value=oops&gt;
+<span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>&gt;&gt;</span> <span class='const'>Left</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>oops</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>&gt;&gt;</span> <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='comment'># =&gt; #&lt;Left value=oops&gt;
 </span></code></pre>
 
 <p>more detail on <a href="https://oyanglul.us/cats.rb"><img src="http://img.shields.io/badge/docs-rdoc.info-blue.svg" alt="Document"></a></p>
@@ -110,7 +110,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sat Aug 20 12:48:38 2016 by
+  Generated on Mon Aug 22 09:39:47 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>
