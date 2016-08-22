@@ -26,8 +26,8 @@ describe Either do
     expect(Left.new(1).inspect).to eq('#<Left value=1>')
   end
 
-  it '#>=' do
-    expect(Right.new(1).>= { |x| Left.new } ).to eq(Left.new)
+  it '#>>=' do
+    expect(Right.new(1).flat_map { |x| Left.new } ).to eq(Left.new)
     expect(Left.new(1).flat_map { |x| Left.new } ).to eq(Left.new(1))
   end
 
@@ -60,6 +60,9 @@ describe Either do
 
   it '#<=>' do
     expect(Left.new(1) < Right.new(2)).to be true
+    expect(Left.new(2) < Right.new(1)).to be true
+    expect(Right.new(2) < Right.new(1)).to be false
+    expect(Right.new(2) >= Right.new(1)).to be true
   end
   
   describe Right do

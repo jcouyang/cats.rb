@@ -25,7 +25,7 @@ gem install data.either
 ### How to use
 ```ruby
 require 'data.either'
-Right.new(1).>= do |x| 
+Right.new(1).flat_map do |x| 
   if x < 1
     Left.new('meh')
   else
@@ -34,7 +34,7 @@ Right.new(1).>= do |x|
 end
 # => #<Right value=2>
 
-Right.new(1) > Left.new('oops') > Right.new(1) # => #<Left value=oops>
+Right.new(1) >> Left.new('oops') >> Right.new(1) # => #<Left value=oops>
 ```
 
 more detail on [![Document](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](https://oyanglul.us/cats.rb )

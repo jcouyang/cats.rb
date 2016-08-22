@@ -96,17 +96,17 @@ module Either
     end
   end
 
-  # it override {Monad#>=}, as Haskell's `>>=` method
-  # if it's {Right}, pass the value to #>='s block, and flat the result
+  # it override {Monad#flat_map}, as Haskell's `>flat_map` method
+  # if it's {Right}, pass the value to #flat_map's block, and flat the result
   # of the block.
   #
   # when it's {Left}, do nothing
   # ``` ruby
-  # expect(Right.new(1).>= { |x| Left.new } ).to eq(Left.new)
-  # expect(Left.new(1).>= { |x| Left.new } ).to eq(Left.new(1))
+  # expect(Right.new(1).flat_map { |x| Left.new } ).to eq(Left.new)
+  # expect(Left.new(1).flat_map { |x| Left.new } ).to eq(Left.new(1))
   # ```
   # @return [Either]
-  def >=
+  def flat_map
     case self
     when Right
       yield @v
@@ -158,7 +158,7 @@ module Either
   end
 
   def to_a
-    case 
+    case self
     when Right
       [@v]
     else
@@ -169,12 +169,12 @@ module Either
   # comparable
   # - Left < Right
   def <=> other
-    case
+    case self
     when Right
       other =~ {Right: ->o{ @v <=> o},
-                Left: 1}
+                Left: ->_{1}}
     else
-      other =~ {Right: -1,
+      other =~ {Right: ->_{ -1 },
                 Left: ->o{ @v <=> o}}
     end
   end
