@@ -4,6 +4,7 @@ require 'control/monad'
 #
 # `Either a b` is either `Left a` or `Right b`
 module Either
+  include Comparable
   include Control::Monad
 
   # Either only contain one value @v
@@ -23,6 +24,10 @@ module Either
   end
 
   # get value `a` out from `Right a`, otherwise return `e`
+  # ```ruby
+  # Right.new(1).get_or_else(2) # => 1
+  # Right.new(1) | 2 # => 1
+  # ```
   def get_or_else e
     case self
       when Right
@@ -32,6 +37,18 @@ module Either
     end
   end
 
+  alias_method :|, :get_or_else
+
+  def or_else e
+    case self
+      when Right
+        
+      else
+        e
+    end
+  end
+
+  
   # overide of Functor's `fmap`, apply function on `Right a`'s value `a`, do nothing if it's `Left e`
   #
   # ``` ruby
@@ -136,9 +153,30 @@ module Either
   end
 
   alias_method :swap, :~@
+  def each &block
+    bimap(->_{}, &blcok)
+  end
 
   def to_a
-    [@v]
+    case 
+    when Right
+      [@v]
+    else
+      []
+    end
+  end
+
+  # comparable
+  # - Left < Right
+  def <=> other
+    case
+    when Right
+      other =~ {Right: ->o{ @v <=> o},
+                Left: 1}
+    else
+      other =~ {Right: -1,
+                Left: ->o{ @v <=> o}}
+    end
   end
   
   # @return [String]
@@ -151,43 +189,46 @@ module Either
     end
   end
 
-  # filter only {Right} value from List of {Either}
-  #
-  # ``` ruby
-  # Either.rights [Left.new(1),Right.new(5), Right.new(2)] # => [5, 2]
-  # ```
-  # @return [value]
-  def self.rights list_of_either
-    list_of_either.select(&:right?)
-      .map { |right| right.get_or_else(nil) }
-  end
+  class << self
+    # filter only {Right} value from List of {Either}
+    #
+    # ``` ruby
+    # Either.rights [Left.new(1),Right.new(5), Right.new(2)] # => [5, 2]
+    # ```
+    # @return [value]
+    def rights list_of_either
+      list_of_either.select(&:right?)
+        .map { |right| right.get_or_else(nil) }
+    end
 
-  # filter only {Left} value from List of {Either}
-  #
-  # ``` ruby
-  # Either.lefts [Left.new(1),Right.new(5), Right.new(2)] # => [1]
-  # ```
-  # @return [value]
-  def self.lefts list_of_either
-    list_of_either.select(&:left?)
-      .map { |left| left.when({Left: ->l{l}}) }
-  end
+    # filter only {Left} value from List of {Either}
+    #
+    # ``` ruby
+    # Either.lefts [Left.new(1),Right.new(5), Right.new(2)] # => [1]
+    # ```
+    # @return [value]
+    def lefts list_of_either
+      list_of_either.select(&:left?)
+        .map { |left| left.when({Left: ->l{l}}) }
+    end
 
-  # partion a List of {Either} into a List of 2 List, one contains only {Left}, other contains only {Right}
-  #
-  # ``` ruby
-  # Either.partition [Left.new(1),Right.new(5), Right.new(2)]  # => [[1],[5, 2]]
-  # ```
-  # @return [[l],[r]]
-  def self.partition list_of_either
-    list_of_either.inject([[],[]]) do |acc, x|
-      x.when({
-               Left: ->(l){acc[0].push(l)},
-               Right: ->(r){acc[1].push(r)}
-             })
-      acc
+    # partion a List of {Either} into a List of 2 List, one contains only {Left}, other contains only {Right}
+    #
+    # ``` ruby
+    # Either.partition [Left.new(1),Right.new(5), Right.new(2)]  # => [[1],[5, 2]]
+    # ```
+    # @return [[l],[r]]
+    def partition list_of_either
+      list_of_either.inject([[],[]]) do |acc, x|
+        x.when({
+                 Left: ->(l){acc[0].push(l)},
+                 Right: ->(r){acc[1].push(r)}
+               })
+        acc
+      end
     end
   end
+  
 end
 
 

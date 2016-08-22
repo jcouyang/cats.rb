@@ -18,7 +18,7 @@ describe Either do
 
   it '#get_or_else' do
     expect(Right.new(1).get_or_else('')).to eq(1)
-    expect(Left.new(1).get_or_else('')).to eq('')
+    expect(Left.new(1) | '').to eq('')
   end
 
   it '#inspect' do
@@ -58,6 +58,10 @@ describe Either do
     expect(~Left.new(1)).to eq(Right.new(1))
   end
 
+  it '#<=>' do
+    expect(Left.new(1) < Right.new(2)).to be true
+  end
+  
   describe Right do
     it '#==' do
       expect(Right.new(1) == Left.new(1)).to be false
