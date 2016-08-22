@@ -1,5 +1,5 @@
 #!/bin/bash
-#semver inc $1
+semver inc $1
 git add .semver
 git commit -m "bump version $(semver tag)"
 git semtag
