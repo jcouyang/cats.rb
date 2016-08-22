@@ -15,7 +15,7 @@ module Control
 
     alias_names([:flat_map], :>=) 
     
-    def > k
+    def >> k
       self.>= { |_| k }
     end
   end

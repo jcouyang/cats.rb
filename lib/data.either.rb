@@ -101,11 +101,10 @@ module Either
   # similar to Scala's `match` for case class
   #
   # will pattern match the value out and pass to matched lambda
-  #
-  # ``` ruby
+  # ```ruby
   # Right.new(1).when({Right: ->x{x+1} }) # => 2
   # Right.new(1).when({Left: ->x{x+1}) # => nil
-  # Right.new(1).when({Left: ->x{x+1}, _: ->x{x-1} }) # => 0
+  # Right.new(1) =~ ({Left: ->x{x+1}, _: ->x{x-1} }) # => 0
   # ```
   # @return [Either]
   def when what
@@ -117,6 +116,31 @@ module Either
     end
   end
 
+  alias_method :match, :when
+  alias_method :=~, :when
+
+  # swap type of [Either]
+  #
+  # ```ruby
+  #  ~Right.new(1) # => Left.new(1)
+  #  ~Left.new(2) # => Right.new(2)
+  # ```
+  # @return [Either]
+  def ~@
+    case self
+    when Right
+      Left.new @v
+    else
+      Right.new @v
+    end
+  end
+
+  alias_method :swap, :~@
+
+  def to_a
+    [@v]
+  end
+  
   # @return [String]
   def inspect
     case self

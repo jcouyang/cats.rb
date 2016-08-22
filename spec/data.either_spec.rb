@@ -32,9 +32,9 @@ describe Either do
   end
 
   it '#when' do
-    expect(Right.new(1).when({Right: ->x{x+1} })).to eq(2)
-    expect(Right.new(1).when({Left: ->x{x+1} })).to eq(nil)
-    expect(Right.new(1).when({Left: ->x{x+1}, _: ->x{x-1} })).to eq(0)
+    expect(Right.new(1).when(Right: ->x{x+1})).to eq(2)
+    expect(Right.new(1) =~ {Left: ->x{x+1}} ).to eq(nil)
+    expect(Right.new(1).when(Left: ->x{x+1}, _: ->x{x-1})).to eq(0)
   end
 
   it 'partition' do
@@ -50,9 +50,14 @@ describe Either do
   end
 
   it '#>>' do
-    expect(Right.new(1) > Left.new > Right.new(1)).to eq(Left.new)
+    expect(Right.new(1) >> Left.new >> Right.new(1)).to eq(Left.new)
   end
-  
+
+  it '#swap' do
+    expect(~Right.new(1)).to eq(Left.new(1))
+    expect(~Left.new(1)).to eq(Right.new(1))
+  end
+
   describe Right do
     it '#==' do
       expect(Right.new(1) == Left.new(1)).to be false
