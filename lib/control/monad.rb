@@ -5,6 +5,7 @@ module Control
     def map
       raise 'map No defined'
     end
+    alias_names [:fmap], :map
   end
 
   module Monad
@@ -13,6 +14,8 @@ module Control
     def flat_map
       raise 'flat_map No defined'
     end
+
+    alias_names [:bind, :chain], :flat_map
     
     def >> k
       self.flat_map { |_| k }
