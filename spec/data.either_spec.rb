@@ -3,6 +3,7 @@ require 'data.either'
 describe Either do
   it '#map' do
     expect(Right.new(1).map {|x| x + 1}).to eq(Right.new(2))
+    expect(Right.new(1).fmap {|x| x + 1}).to eq(Right.new(2))
     expect(Left.new('hehe').map {|x| x + 1}).to eq(Left.new('hehe'))
   end
 
