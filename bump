@@ -2,4 +2,4 @@
 semver inc $1
 git add .semver
 git commit -m "bump version $(semver tag)"
-git semtag
+git tag -a $(semver tag) -m "tagging $(semver tag)"
