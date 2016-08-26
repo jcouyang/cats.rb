@@ -12,6 +12,7 @@ task :push do
       s.authors     = ["Jichao Ouyang"]
       s.email       = 'oyanglulu@gmail.com'
       s.files       = ["lib/#{name}.rb",
+                       "lib/union_type.rb",
                        "lib/helper.rb",
                        "lib/control/monad.rb"]
       s.homepage    =

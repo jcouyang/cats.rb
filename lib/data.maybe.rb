@@ -1,11 +1,12 @@
 require 'control/monad'
 require 'singleton'
+require 'union_type'
 # The `Either` union type represents values with two possibilities:
 #
 # `Either a b` is either `Left a` or `Right b`
 module Maybe
   include Control::Monad
-
+  include UnionType
   # Either only contain one value @v
   # @return [Either]
   def initialize v=nil

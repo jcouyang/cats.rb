@@ -21,4 +21,9 @@ describe Maybe do
     expect(Nothing.flat_map { |x| Just.new(2) } ).to eq(Nothing)
   end
 
+  it '#when' do
+    expect(Just.new(1).when(Just: ->x{x+1})).to eq(2)
+    expect(Just.new(1) =~ {Nothing: ->x{x+1}} ).to eq(nil)
+    expect(Just.new(1).when(Nothing: ->x{x+1}, _: ->x{x-1})).to eq(0)
+  end
 end

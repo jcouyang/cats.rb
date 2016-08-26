@@ -1,12 +1,12 @@
 require 'control/monad'
-
+require 'union_type'
 # The `Either` union type represents values with two possibilities:
 #
 # `Either a b` is either `Left a` or `Right b`
 module Either
   include Comparable
   include Control::Monad
-
+  include UnionType
   # Either only contain one value @v
   # @return [Either]
   def initialize v=nil
@@ -114,27 +114,6 @@ module Either
       self
     end
   end
-
-  # similar to Scala's `match` for case class
-  #
-  # will pattern match the value out and pass to matched lambda
-  # ```ruby
-  # Right.new(1).when({Right: ->x{x+1} }) # => 2
-  # Right.new(1).when({Left: ->x{x+1}) # => nil
-  # Right.new(1) =~ ({Left: ->x{x+1}, _: ->x{x-1} }) # => 0
-  # ```
-  # @return [Either]
-  def when what
-    current_class = self.class.to_s.to_sym
-    if what.include? current_class
-      what[current_class].(@v)
-    elsif what.include? :_
-      what[:_].(@v)
-    end
-  end
-
-  alias_method :match, :when
-  alias_method :=~, :when
 
   # swap type of [Either]
   #
