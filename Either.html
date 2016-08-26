@@ -319,7 +319,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(v)  &#x21d2; Either </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(v = nil)  &#x21d2; Either </a>
     
 
     
@@ -1053,7 +1053,7 @@ of the block.</p>
       <div class="method_details ">
   <h3 class="signature " id="initialize-instance_method">
   
-    #<strong>initialize</strong>(v)  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+    #<strong>initialize</strong>(v = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
   
 
   
@@ -1095,8 +1095,8 @@ of the block.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_v'>v</span>
-  <span class='ivar'>@v</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_v'>v</span><span class='op'>=</span><span class='kw'>nil</span>
+  <span class='ivar'>@v</span><span class='op'>=</span><span class='id identifier rubyid_v'>v</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1635,7 +1635,7 @@ Right.new(1) =~ ({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 23 02:32:06 2016 by
+  Generated on Fri Aug 26 14:54:35 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>
