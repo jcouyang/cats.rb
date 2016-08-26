@@ -9,8 +9,8 @@ module Either
 
   # Either only contain one value @v
   # @return [Either]
-  def initialize v
-    @v = v
+  def initialize v=nil
+    @v=v
   end
 
   # default `false`, should override in {Left} or {Right}
@@ -234,9 +234,6 @@ end
 
 class Left
   include Either  
-  def initialize v=nil
-    @v=v
-  end
 
   # always true
   # @return [Boolean]
