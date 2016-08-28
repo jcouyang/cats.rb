@@ -67,8 +67,20 @@ end
 
 Maybe.new(1) >> Nothing >> Maybe.new(2) # => #<Nothing>
 ```
-
 ## WIP
-- data.free
-- control.exception
-- to be continue...
+
+### control.monad.free
+
+#### install
+``` sh
+gem install control.monad.free
+```
+
+#### How to use
+``` ruby
+Roll.new(Just.new(Return.new(1))).flat_map { |x| Return.new(x + 1) }
+# => #<Roll #<Just #<Return 2>>>
+```
+
+### control.exception
+### to be continue...
