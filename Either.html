@@ -75,7 +75,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd>Comparable, <span class='object_link'><a href="Control/Monad.html" title="Control::Monad (module)">Control::Monad</a></span></dd>
+      <dd>Comparable, <span class='object_link'><a href="Control/Monad.html" title="Control::Monad (module)">Control::Monad</a></span>, UnionType</dd>
   </dl>
   
   
@@ -342,28 +342,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#left%3F-instance_method" title="#left? (instance method)">#<strong>left?</strong>  &#x21d2; Boolean </a>
     
 
@@ -500,11 +478,11 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#when-instance_method" title="#when (instance method)">#<strong>when</strong>(what)  &#x21d2; Either </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
-      (also: #match, #=~)
+      (also: #inspect)
     
   </span>
   
@@ -516,8 +494,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>similar to Scala&#39;s <code>match</code> for case class.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -551,6 +528,7 @@
   
 
 
+  
   
   
   
@@ -617,13 +595,13 @@
       <pre class="lines">
 
 
-210
-211
-212
-213</pre>
+189
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 189</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lefts'>lefts</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
   <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:left?</span><span class='rparen'>)</span>
@@ -675,18 +653,18 @@
       <pre class="lines">
 
 
-221
-222
-223
-224
-225
-226
-227
-228
-229</pre>
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 200</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_partition'>partition</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
   <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_acc'>acc</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
@@ -743,13 +721,13 @@
       <pre class="lines">
 
 
-199
-200
-201
-202</pre>
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rights'>rights</span> <span class='id identifier rubyid_list_of_either'>list_of_either</span>
   <span class='id identifier rubyid_list_of_either'>list_of_either</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:right?</span><span class='rparen'>)</span>
@@ -795,19 +773,19 @@
       <pre class="lines">
 
 
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180</pre>
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -906,12 +884,12 @@
       <pre class="lines">
 
 
-156
-157
-158</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
   <span class='id identifier rubyid_bimap'>bimap</span><span class='lparen'>(</span><span class='tlambda'>-&gt;</span><span class='id identifier rubyid__'>_</span><span class='tlambeg'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_blcok'>blcok</span><span class='rparen'>)</span>
@@ -1097,68 +1075,6 @@ of the block.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_v'>v</span><span class='op'>=</span><span class='kw'>nil</span>
   <span class='ivar'>@v</span><span class='op'>=</span><span class='id identifier rubyid_v'>v</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="inspect-instance_method">
-  
-    #<strong>inspect</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-183
-184
-185
-186
-187
-188
-189
-190</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 183</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='kw'>case</span> <span class='kw'>self</span>
-  <span class='kw'>when</span> <span class='const'>Left</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Left value=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@v</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Right value=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@v</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1460,17 +1376,17 @@ of the block.</p>
       <pre class="lines">
 
 
-160
-161
-162
-163
-164
-165
-166
-167</pre>
+139
+140
+141
+142
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_a'>to_a</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -1486,29 +1402,21 @@ of the block.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="when-instance_method">
+  <h3 class="signature " id="to_s-instance_method">
   
-    #<strong>when</strong>(what)  &#x21d2; <tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
     <span class="aliases">Also known as:
-    <span class="names"><span id='match-instance_method'>match</span>, <span id='=~-instance_method'>=~</span></span>
+    <span class="names"><span id='inspect-instance_method'>inspect</span></span>
     </span>
   
 
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>similar to Scala&#39;s <code>match</code> for case class</p>
-
-<p>will pattern match the value out and pass to matched lambda</p>
-
-<pre class="code ruby"><code class="ruby">Right.new(1).when({Right: -&gt;x{x+1} }) # =&gt; 2
-Right.new(1).when({Left: -&gt;x{x+1}) # =&gt; nil
-Right.new(1) =~ ({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
-</code></pre>
-
+    
 
   </div>
 </div>
@@ -1520,7 +1428,7 @@ Right.new(1) =~ ({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="" title="Either (module)">Either</a></span></tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -1534,24 +1442,24 @@ Right.new(1) =~ ({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
       <pre class="lines">
 
 
-127
-128
-129
-130
-131
-132
-133
-134</pre>
+162
+163
+164
+165
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 162</span>
 
-<span class='kw'>def</span> <span class='kw'>when</span> <span class='id identifier rubyid_what'>what</span>
-  <span class='id identifier rubyid_current_class'>current_class</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_what'>what</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_current_class'>current_class</span>
-    <span class='id identifier rubyid_what'>what</span><span class='lbracket'>[</span><span class='id identifier rubyid_current_class'>current_class</span><span class='rbracket'>]</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@v</span><span class='rparen'>)</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_what'>what</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='symbol'>:_</span>
-    <span class='id identifier rubyid_what'>what</span><span class='lbracket'>[</span><span class='symbol'>:_</span><span class='rbracket'>]</span><span class='period'>.</span><span class='lparen'>(</span><span class='ivar'>@v</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='kw'>case</span> <span class='kw'>self</span>
+  <span class='kw'>when</span> <span class='const'>Left</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Left </span><span class='embexpr_beg'>#{</span><span class='ivar'>@v</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;Right </span><span class='embexpr_beg'>#{</span><span class='ivar'>@v</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1605,17 +1513,17 @@ Right.new(1) =~ ({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
       <pre class="lines">
 
 
-146
-147
-148
-149
-150
-151
-152
-153</pre>
+125
+126
+127
+128
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/data.either.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='op'>~@</span>
   <span class='kw'>case</span> <span class='kw'>self</span>
@@ -1635,7 +1543,7 @@ Right.new(1) =~ ({Left: -&gt;x{x+1}, _: -&gt;x{x-1} }) # =&gt; 0
 </div>
 
       <div id="footer">
-  Generated on Fri Aug 26 14:54:35 2016 by
+  Generated on Sun Aug 28 15:01:29 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>
