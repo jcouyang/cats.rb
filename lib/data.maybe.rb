@@ -78,7 +78,7 @@ module Maybe
   end
 
   # @return [String]
-  def inspect
+  def to_s
     case self
     when Just
       "#<Just #{@v}>"
@@ -86,6 +86,7 @@ module Maybe
       "#<Nothing>"
     end
   end
+  alias_method :inspect, :to_s
 end
 
 

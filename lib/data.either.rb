@@ -159,15 +159,15 @@ module Either
   end
   
   # @return [String]
-  def inspect
+  def to_s
     case self
     when Left
-      "#<Left value=#{@v}>"
+      "#<Left #{@v}>"
     else
-      "#<Right value=#{@v}>"
+      "#<Right #{@v}>"
     end
   end
-
+  alias_method :inspect, :to_s
   class << self
     # filter only {Right} value from List of {Either}
     #
