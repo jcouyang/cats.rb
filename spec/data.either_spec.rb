@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require 'spec_helper'
 require 'data.either'
 describe Either do
   it '#map' do
@@ -23,8 +23,8 @@ describe Either do
   end
 
   it '#inspect' do
-    expect(Right.new(1).inspect).to eq('#<Right value=1>')
-    expect(Left.new(1).inspect).to eq('#<Left value=1>')
+    expect(Right.new(1).inspect).to eq('#<Right 1>')
+    expect(Left.new(1).inspect).to eq('#<Left 1>')
   end
 
   it '#>>=' do
