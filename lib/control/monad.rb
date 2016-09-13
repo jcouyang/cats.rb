@@ -21,5 +21,4 @@ module Control
       self.flat_map { |_| k }
     end
   end
-
 end
