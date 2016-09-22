@@ -78,8 +78,8 @@ gem install control.monad.free
 
 #### How to use
 ``` ruby
-Roll.new(Just.new(Return.new(1))).flat_map { |x| Return.new(x + 1) }
-# => #<Roll #<Just #<Return 2>>>
+Roll.new(Just.new(Return.new(1))).flat_map { |x| Roll.new(Right.new(Return.new(x + 1))) }
+# Roll.new(Just.new(Roll.new(Right.new(Return.new(2)))))
 ```
 
 ### control.exception
