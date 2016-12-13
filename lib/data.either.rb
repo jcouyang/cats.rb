@@ -133,7 +133,7 @@ module Either
 
   alias_method :swap, :~@
   def each &block
-    bimap(->_{}, &blcok)
+    bimap(->_{}, &block)
   end
 
   def to_a
