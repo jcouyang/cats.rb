@@ -8,9 +8,16 @@ module Control
     alias_names [:fmap], :map
   end
 
+  module Applicative
+    def apply
+      raise 'apply No defined'
+    end
+  end
+  
   module Monad
     extend Helper
     include Functor
+    include Applicative
     def flat_map
       raise 'flat_map No defined'
     end
