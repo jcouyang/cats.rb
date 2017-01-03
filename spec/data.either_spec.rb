@@ -77,4 +77,10 @@ describe Either do
       expect(Left.new(1) == Right.new(1)).to be false
     end
   end
+
+  it '#inspect' do
+    class A < StandardError
+    end
+    expect(Left.new(Right.new(A.new('hehe'))).to_s).to eq '#<Left #<Right #<A: hehe>>>'
+  end
 end
