@@ -1,6 +1,10 @@
 require 'helper'
 module UnionType
   extend Helper
+
+  def initialize *values
+    @v, *@values=values
+  end
   # similar to Scala's `match` for case class
   #
   # will pattern match the value out and pass to matched lambda
@@ -13,9 +17,9 @@ module UnionType
   def when(what)
     current_class = self.class.to_s.to_sym
     if what.include? current_class
-      what[current_class].call(@v)
+      what[current_class].call(@v, *@values)
     elsif what.include? :_
-      what[:_].call(@v)
+      what[:_].call(*@v, *@values)
     end
   end
 
