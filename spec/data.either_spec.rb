@@ -83,4 +83,9 @@ describe Either do
     end
     expect(Left.new(Right.new(A.new('hehe'))).to_s).to eq '#<Left #<Right #<A: hehe>>>'
   end
+
+  it '#try' do
+    expect(Either.try { raise 'hehe' }).to be_a Left
+    expect(Either.try { 'yay' }).to eq Right.new 'yay'
+  end
 end

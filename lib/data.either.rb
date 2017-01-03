@@ -8,6 +8,20 @@ module Either
   include Control::Monad
   include UnionType
 
+  # try something could raise exception, and wrap value into Right, exception into Left
+  #
+  # @return [Either]
+  # ```ruby
+  # Either::try do
+  #   something_may_raise_error
+  # end
+  # ```
+  def self.try
+    Right.new(yield)
+  rescue => e
+    Left.new(e)
+  end
+  
   # Either only contain one value @v
   # @return [Either]
   def initialize(v = nil)
