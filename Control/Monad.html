@@ -80,7 +80,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="Functor.html" title="Control::Functor (module)">Functor</a></span></dd>
+      <dd><span class='object_link'><a href="Applicative.html" title="Control::Applicative (module)">Applicative</a></span>, <span class='object_link'><a href="Functor.html" title="Control::Functor (module)">Functor</a></span></dd>
   </dl>
   
   
@@ -172,6 +172,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Applicative.html" title="Control::Applicative (module)">Applicative</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Applicative.html#apply-instance_method" title="Control::Applicative#apply (method)">#apply</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Functor.html" title="Control::Functor (module)">Functor</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Functor.html#map-instance_method" title="Control::Functor#map (method)">#map</a></span></p>
 
@@ -196,12 +207,12 @@
       <pre class="lines">
 
 
-20
-21
-22</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/control/monad.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/control/monad.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='op'>&gt;&gt;</span> <span class='id identifier rubyid_k'>k</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='op'>|</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
@@ -226,12 +237,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/control/monad.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/control/monad.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flat_map'>flat_map</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>flat_map No defined</span><span class='tstring_end'>&#39;</span></span>
@@ -246,7 +257,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Dec 13 13:16:14 2016 by
+  Generated on Tue Jan  3 03:51:04 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>
