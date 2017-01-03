@@ -214,8 +214,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/control/monad.rb', line 27</span>
 
-<span class='kw'>def</span> <span class='op'>&gt;&gt;</span> <span class='id identifier rubyid_k'>k</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='op'>|</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='op'>&gt;&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_flat_map'>flat_map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='op'>|</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -257,7 +257,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan  3 03:51:04 2017 by
+  Generated on Tue Jan  3 11:53:41 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.4).
 </div>
