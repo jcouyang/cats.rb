@@ -13,11 +13,17 @@ module Either
   # @return [Either]
   # ```ruby
   # Either::try do
-  #   something_may_raise_error
+  #   something_may_raise_error_or_return_left
   # end
   # ```
   def self.try
-    Right.new(yield)
+    res = yield
+    case res
+    when Either
+      res.flat_map { |v| Right.new v }
+    else
+      Right.new(res)
+    end
   rescue => e
     Left.new(e)
   end

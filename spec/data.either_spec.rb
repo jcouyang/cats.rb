@@ -87,5 +87,7 @@ describe Either do
   it '#try' do
     expect(Either.try { raise 'hehe' }).to be_a Left
     expect(Either.try { 'yay' }).to eq Right.new 'yay'
+    expect(Either.try { Left.new 'error'}).to eq Left.new 'error'
+    expect(Either.try { Right.new 'right'}).to eq Right.new 'right'
   end
 end
