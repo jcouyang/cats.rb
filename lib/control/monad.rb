@@ -13,7 +13,7 @@ module Control
       raise 'apply No defined'
     end
   end
-  
+
   module Monad
     extend Helper
     include Functor
@@ -23,9 +23,9 @@ module Control
     end
 
     alias_names [:bind, :chain], :flat_map
-    
-    def >> k
-      self.flat_map { |_| k }
+
+    def >>(k)
+      flat_map { |_| k }
     end
   end
 end

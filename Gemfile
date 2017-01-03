@@ -4,6 +4,7 @@ group :development do
   gem 'yard'
   gem 'redcarpet'
   gem 'github-markup'
+  gem 'rubocop'
 end
 group :test do
   gem 'coveralls'

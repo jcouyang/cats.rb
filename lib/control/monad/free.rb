@@ -3,19 +3,18 @@ require 'control/monad'
 # WIP
 module Free
   include Control::Monad
-  def initialize v=nil
+  def initialize(v = nil)
     @v = v
   end
-  
-  def tail_recur_m a, &f
+
+  def tail_recur_m(a, &f)
     f[a].flat_map do |either|
-      either.when Left: -> a1 { tail_recur_m a1, &f},
-                  Right: -> b { Return.new b }
+      either.when Left: -> (a1) { tail_recur_m a1, &f },
+                  Right: -> (b) { Return.new b }
     end
   end
-  
-  def fold_map a_to_m
-    
+
+  def fold_map(a_to_m)
   end
 
   # @return [String]
@@ -27,24 +26,24 @@ module Free
       "#<Return #{@v}>"
     end
   end
-  alias_method :inspect, :to_s
+  alias inspect to_s
 end
 
 # Roll (f (Free f a))
 class Roll
   include Free
-  def map &block
-    Roll.new(@v.map { |free_f_a| free_f_a.map &block})
+  def map(&block)
+    Roll.new(@v.map { |free_f_a| free_f_a.map &block })
   end
 
-  def flat_map &k
-    Roll.new(@v.map { |free_f_a| free_f_a.flat_map &k})
+  def flat_map(&k)
+    Roll.new(@v.map { |free_f_a| free_f_a.flat_map &k })
   end
 
-  def == other
+  def ==(other)
     case other
     when Roll
-      other.map { |v| map { |a| return a==v} }
+      other.map { |v| map { |a| return a == v } }
     else
       false
     end
@@ -56,10 +55,12 @@ class Return
   def map
     Return.new(yield @v)
   end
+
   def flat_map
     yield @v
   end
-  def == other
+
+  def ==(other)
     case other
     when Return
       other.map { |v| return v == @v }

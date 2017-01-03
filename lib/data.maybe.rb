@@ -9,17 +9,17 @@ module Maybe
   include UnionType
   # Either only contain one value @v
   # @return [Either]
-  def initialize v=nil
+  def initialize(v = nil)
     @v = v
   end
 
   # get value `a` out from `Right a`, otherwise return `e`
-  def get_or_else e
+  def get_or_else(e)
     case self
-      when Just
-        @v
-      else
-        e
+    when Just
+      @v
+    else
+      e
     end
   end
 
@@ -38,7 +38,7 @@ module Maybe
       self
     end
   end
-  
+
   # it override {Monad#flat_map}, as Haskell's `>flat_map` method
   # if it's {Right}, pass the value to #flat_map's block, and flat the result
   # of the block.
@@ -68,12 +68,12 @@ module Maybe
   # Right.new(1).when({Left: ->x{x+1}, _: ->x{x-1} }) # => 0
   # ```
   # @return [Either]
-  def when what
+  def when(what)
     current_class = self.class.to_s.to_sym
     if what.include? current_class
-      what[current_class].(@v)
+      what[current_class].call(@v)
     elsif what.include? :_
-      what[:_].(@v)
+      what[:_].call(@v)
     end
   end
 
@@ -83,18 +83,17 @@ module Maybe
     when Just
       "#<Just #{@v}>"
     else
-      "#<Nothing>"
+      '#<Nothing>'
     end
   end
-  alias_method :inspect, :to_s
+  alias inspect to_s
 end
-
 
 class Nothing
   include Singleton
   include Maybe
- 
-  def == other
+
+  def ==(other)
     case other
     when Nothing
       true
@@ -108,8 +107,8 @@ Nothing = Nothing.instance
 
 class Just
   include Maybe
-  
-  def == other
+
+  def ==(other)
     case other
     when Just
       other.map { |v| return v == @v }

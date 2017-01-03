@@ -7,10 +7,11 @@ module Either
   include Comparable
   include Control::Monad
   include UnionType
+
   # Either only contain one value @v
   # @return [Either]
-  def initialize v=nil
-    @v=v
+  def initialize(v = nil)
+    @v = v
   end
 
   # default `false`, should override in {Left} or {Right}
@@ -18,6 +19,7 @@ module Either
   def left?
     false
   end
+
   # (see #left?)
   def right?
     false
@@ -28,27 +30,26 @@ module Either
   # Right.new(1).get_or_else(2) # => 1
   # Right.new(1) | 2 # => 1
   # ```
-  def get_or_else e
+  def get_or_else(e)
     case self
-      when Right
-        @v
-      else
-        e
+    when Right
+      @v
+    else
+      e
     end
   end
 
-  alias_method :|, :get_or_else
+  alias | get_or_else
 
-  def or_else e
+  def or_else(e)
     case self
-      when Right
-        
-      else
-        e
+    when Right
+
+    else
+      e
     end
   end
 
-  
   # overide of Functor's `fmap`, apply function on `Right a`'s value `a`, do nothing if it's `Left e`
   #
   # ``` ruby
@@ -64,6 +65,7 @@ module Either
       self
     end
   end
+
   # the opposit of #map, apply function to `Left e`, do nothing if it's `Right a`
   #
   # ``` ruby
@@ -86,13 +88,13 @@ module Either
   #   Right.new(1).bimap ->(x){x-1}, ->(x){x+1} # => 2
   #   Left.new(1).bimap ->(x){x-1}, ->(x){x+1}) # => 0
   # ```
-  # @return [Either]  
-  def bimap lfn, rfn
+  # @return [Either]
+  def bimap(lfn, rfn)
     case self
-      when Right
-        Right.new(rfn.(@v))
-      else
-        Left.new(lfn.(@v))
+    when Right
+      Right.new(rfn.call(@v))
+    else
+      Left.new(lfn.call(@v))
     end
   end
 
@@ -131,9 +133,9 @@ module Either
     end
   end
 
-  alias_method :swap, :~@
-  def each &block
-    bimap(->_{}, &block)
+  alias swap ~@
+  def each(&block)
+    bimap(->(_) {}, &block)
   end
 
   def to_a
@@ -147,17 +149,17 @@ module Either
 
   # comparable
   # - Left < Right
-  def <=> other
-    case self
-    when Right
-      other =~ {Right: ->o{ @v <=> o},
-                Left: ->_{1}}
-    else
-      other =~ {Right: ->_{ -1 },
-                Left: ->o{ @v <=> o}}
-    end
+  def <=>(other)
+    other =~ case self
+             when Right
+               { Right: ->(o) { @v <=> o },
+                 Left: ->(_) { 1 } }
+             else
+               { Right: ->(_) { -1 },
+                 Left: ->(o) { @v <=> o } }
+             end
   end
-  
+
   # @return [String]
   def inspect
     case self
@@ -167,7 +169,7 @@ module Either
       "#<Right #{@v.inspect}>"
     end
   end
-  alias_method :to_s, :inspect
+  alias to_s inspect
   class << self
     # filter only {Right} value from List of {Either}
     #
@@ -175,9 +177,9 @@ module Either
     # Either.rights [Left.new(1),Right.new(5), Right.new(2)] # => [5, 2]
     # ```
     # @return [value]
-    def rights list_of_either
+    def rights(list_of_either)
       list_of_either.select(&:right?)
-        .map { |right| right.get_or_else(nil) }
+                    .map { |right| right.get_or_else(nil) }
     end
 
     # filter only {Left} value from List of {Either}
@@ -186,9 +188,9 @@ module Either
     # Either.lefts [Left.new(1),Right.new(5), Right.new(2)] # => [1]
     # ```
     # @return [value]
-    def lefts list_of_either
+    def lefts(list_of_either)
       list_of_either.select(&:left?)
-        .map { |left| left.when({Left: ->l{l}}) }
+                    .map { |left| left.when(Left: ->(l) { l }) }
     end
 
     # partion a List of {Either} into a List of 2 List, one contains only {Left}, other contains only {Right}
@@ -197,30 +199,26 @@ module Either
     # Either.partition [Left.new(1),Right.new(5), Right.new(2)]  # => [[1],[5, 2]]
     # ```
     # @return [[l],[r]]
-    def partition list_of_either
-      list_of_either.inject([[],[]]) do |acc, x|
-        x.when({
-                 Left: ->(l){acc[0].push(l)},
-                 Right: ->(r){acc[1].push(r)}
-               })
+    def partition(list_of_either)
+      list_of_either.inject([[], []]) do |acc, x|
+        x.when(Left: ->(l) { acc[0].push(l) },
+               Right: ->(r) { acc[1].push(r) })
         acc
       end
     end
   end
-  
 end
 
-
 class Left
-  include Either  
+  include Either
 
   # always true
   # @return [Boolean]
   def left?
     true
   end
-  
-  def == other
+
+  def ==(other)
     case other
     when Left
       other.left_map { |v| return v == @v }
@@ -232,14 +230,14 @@ end
 
 class Right
   include Either
-  
+
   # always true
   # @return [Boolean]
   def right?
     true
   end
-  
-  def == other
+
+  def ==(other)
     case other
     when Right
       other.map { |v| return v == @v }

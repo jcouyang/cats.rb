@@ -2,8 +2,8 @@ require 'spec_helper'
 require 'data.maybe'
 describe Maybe do
   it '#map' do
-    expect(Just.new(1).map {|x| x + 1}).to eq(Just.new(2))
-    expect(Nothing.map {|x| x + 1}).to eq(Nothing)
+    expect(Just.new(1).map { |x| x + 1 }).to eq(Just.new(2))
+    expect(Nothing.map { |x| x + 1 }).to eq(Nothing)
   end
 
   it '#get_or_else' do
@@ -17,13 +17,13 @@ describe Maybe do
   end
 
   it '#>>=' do
-    expect(Just.new(1).flat_map { |x| Nothing } ).to eq(Nothing)
-    expect(Nothing.flat_map { |x| Just.new(2) } ).to eq(Nothing)
+    expect(Just.new(1).flat_map { |_x| Nothing }).to eq(Nothing)
+    expect(Nothing.flat_map { |_x| Just.new(2) }).to eq(Nothing)
   end
 
   it '#when' do
-    expect(Just.new(1).when(Just: ->x{x+1})).to eq(2)
-    expect(Just.new(1) =~ {Nothing: ->x{x+1}} ).to eq(nil)
-    expect(Just.new(1).when(Nothing: ->x{x+1}, _: ->x{x-1})).to eq(0)
+    expect(Just.new(1).when(Just: ->(x) { x + 1 })).to eq(2)
+    expect(Just.new(1) =~ { Nothing: ->(x) { x + 1 } }).to eq(nil)
+    expect(Just.new(1).when(Nothing: ->(x) { x + 1 }, _: ->(x) { x - 1 })).to eq(0)
   end
 end
