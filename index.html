@@ -72,18 +72,20 @@
 :arrow_down:  :arrow_lower_right: :arrow_down:<br/>
 :scream_cat: :arrow_right: :heart_eyes_cat:</p>
 
-<h2>data.either</h2>
+<h2>ADT</h2>
+
+<h3>data.either</h3>
 
 <p><a href="https://rubygems.org/gems/data.either"><img src="https://img.shields.io/gem/v/data.either.svg?maxAge=2592000" alt="Gem"></a>
 <a href="https://rubygems.org/gems/data.either"><img src="https://img.shields.io/gem/dt/data.either.svg?maxAge=2592000" alt="Gem"></a>
 <a href="https://oyanglul.us/cats.rb"><img src="http://img.shields.io/badge/docs-rdoc.info-blue.svg" alt="Document"></a></p>
 
-<h3>install</h3>
+<h4>install</h4>
 
 <pre class="code sh"><code class="sh">gem install data.either
 </code></pre>
 
-<h3>How to use</h3>
+<h4>How to use</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>data.either</span><span class='tstring_end'>&#39;</span></span>
 <span class='const'>Right</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> 
@@ -100,19 +102,19 @@
 
 <p>more detail on <a href="https://oyanglul.us/cats.rb"><img src="http://img.shields.io/badge/docs-rdoc.info-blue.svg" alt="Document"></a></p>
 
-<h2>data.maybe</h2>
+<h3>data.maybe</h3>
 
 <p><a href="https://rubygems.org/gems/data.maybe"><img src="https://img.shields.io/gem/v/data.maybe.svg?maxAge=2592000" alt="Gem"></a>
 <a href="https://rubygems.org/gems/data.maybe"><img src="https://img.shields.io/gem/dt/data.maybe.svg?maxAge=2592000" alt="Gem"></a></p>
 
-<h3>install</h3>
+<h4>install</h4>
 
 <pre class="code sh"><code class="sh">gem install data.maybe
 </code></pre>
 
-<h3>How to use</h3>
+<h4>How to use</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>data.either</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>data.maybe</span><span class='tstring_end'>&#39;</span></span>
 <span class='const'>Just</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span> 
   <span class='kw'>if</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>&lt;</span> <span class='int'>1</span>
     <span class='const'>Nothing</span>
@@ -143,12 +145,16 @@
 <h3>control.exception</h3>
 
 <h3>to be continue...</h3>
+
+<ul>
+<li>data.validate</li>
+</ul>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Jan  3 12:31:26 2017 by
+  Generated on Thu Jan 19 13:49:11 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.2.4).
+  0.9.5 (ruby-2.2.6).
 </div>
 
     </div>
