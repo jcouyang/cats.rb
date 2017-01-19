@@ -11,19 +11,21 @@
 :arrow_down:  :arrow_lower_right: :arrow_down:<br/>
 :scream_cat: :arrow_right: :heart_eyes_cat:
 
-## data.either
+## ADT
+
+### data.either
 
 [![Gem](https://img.shields.io/gem/v/data.either.svg?maxAge=2592000)](https://rubygems.org/gems/data.either)
 [![Gem](https://img.shields.io/gem/dt/data.either.svg?maxAge=2592000)](https://rubygems.org/gems/data.either)
 [![Document](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](https://oyanglul.us/cats.rb )
 
-### install
+#### install
 
 ``` sh
 gem install data.either
 ```
 
-### How to use
+#### How to use
 ```ruby
 require 'data.either'
 Right.new(1).flat_map do |x| 
@@ -41,21 +43,21 @@ Right.new(1) >> Left.new('oops') >> Right.new(1) # => #<Left value=oops>
 more detail on [![Document](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](https://oyanglul.us/cats.rb )
 
 
-## data.maybe
+### data.maybe
 
 [![Gem](https://img.shields.io/gem/v/data.maybe.svg?maxAge=2592000)](https://rubygems.org/gems/data.maybe)
 [![Gem](https://img.shields.io/gem/dt/data.maybe.svg?maxAge=2592000)](https://rubygems.org/gems/data.maybe)
 
 
-### install
+#### install
 
 ``` sh
 gem install data.maybe
 ```
 
-### How to use
+#### How to use
 ```ruby
-require 'data.either'
+require 'data.maybe'
 Just.new(1).flat_map do |x| 
   if x < 1
     Nothing
@@ -84,3 +86,4 @@ Roll.new(Just.new(Return.new(1))).flat_map { |x| Roll.new(Right.new(Return.new(x
 
 ### control.exception
 ### to be continue...
+- data.validate
